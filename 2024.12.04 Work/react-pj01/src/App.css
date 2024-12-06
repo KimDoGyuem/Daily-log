@@ -1,0 +1,105 @@
+#character_area{
+    display: flex;
+    height: 254px;
+    padding: 2px;
+    border: 4px solid rgb(231, 163, 53);
+  }
+
+  .character{
+    position: relative;
+    background-size: cover; /* 비율에 맞춰 영역을 꽉 채웁니다 */
+    background-position: center; /* 이미지를 중앙에 위치 */
+    background-repeat: no-repeat; /* 반복하지 않음 */  
+    width:200px;
+    height:250px;
+    background-color: rgb(209, 254, 253);
+    margin: 2px;
+  }
+
+  #info{
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 10px;
+  }
+
+  .그림덴{
+    background-image: url('./그림덴.png');
+  }
+  .단아{
+    background-image: url('./단아.png');
+  }
+  .델리아{
+    background-image: url('./델리아.png');
+  }
+  .라티야{
+    background-image: url('./라티야.png');
+  }
+  .레서{
+    background-image: url('./레서.png');
+  }
+  .레티{
+    background-image: url('./레티.png');
+  }
+  .리시타{
+    background-image: url('./리시타.png');
+  }
+  .린{
+    background-image: url('./린.png');
+  }
+  .미리{
+    background-image: url('./미리.png');
+  }
+  .미울{
+    background-image: url('./미울.png');
+  }
+  .벨{
+    background-image: url('./벨.png');
+  }
+  .벨라{
+    background-image: url('./벨라.png');
+  }
+  .사냐{
+    background-image: url('./사냐.png');
+  }
+  .소우{
+    background-image: url('./소우.png');
+  }
+  .아리샤{
+    background-image: url('./아리샤.png');
+  }
+  .아켈{
+    background-image: url('./아켈.png');
+  }
+  .이비{
+    background-image: url('./이비.png');
+  }
+  .체른{
+    background-image: url('./체른.png');
+  }
+  .카록{
+    background-image: url('./카록.png');
+  }
+  .카엘{
+    background-image: url('./카엘.png');
+  }
+  .카이{
+    background-image: url('./카이.png');
+  }
+  .테사{
+    background-image: url('./테사.png');
+  }
+  .피오나{
+    background-image: url('./피오나.png');
+  }
+  .허크{
+    background-image: url('./허크.png');
+  }
+  .헤기{
+    background-image: url('./헤기.png');
+  }
+
+
+
+
