@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.mapper.MabiMapper">
+	
+	<select id="getList" resultType="com.project.mh.board.dto.GuestDto">
+		SELECT * from mabi_board where m_category = #{category} limit #{offset}, #{rowCount}
+	</select>
+
+	<select id="getPostCount" resultType="int">
+		SELECT count(*) from mabi_board where m_category = #{category}
+ 	</select>
+
+	<select id="getSearchList" resultType="com.project.mh.board.dto.GuestDto">
+		SELECT * from mabi_board where m_category = #{category} and m_text like CONCAT('%', #{word}, '%') limit #{offset}, #{rowCount}
+	</select>
+	
+	<select id="getSearchPostCount" resultType="int">
+		SELECT count(*) from mabi_board where m_category = #{category} and m_text like CONCAT('%', #{word}, '%')	
+	</select>
+
+	<select id="read" resultType="com.project.mh.board.dto.GuestDto">
+		SELECT * from mabi_board where m_no = #{m_no}
+	</select>
+	
+	<delete id="del">
+		DELETE from mabi_board where m_no = #{m_no}
+	</delete>
+
+	<insert id="write">
+		INSERT into mabi_board (m_title, m_id,m_text, m_category) values(#{m_title},#{m_id},#{m_text},#{m_category})
+	</insert>
+
+	<update id="modify">
+		UPDATE mabi_board set m_title = #{m_title}, m_text = #{m_text} where m_no = #{m_no}
+	</update>
+	
+	<insert id="reply">
+		INSERT into mabi_board (m_reply_ori, m_reply_id, m_reply_text) values(#{m_reply_ori},#{m_reply_id},#{m_reply_text})
+	</insert>
+	
+	<select id="readReply" resultType="com.project.mh.board.dto.GuestDto">
+		SELECT * from mabi_board where m_reply_ori = #{ori}
+	</select>
+
+	<update id="hits">
+		UPDATE mabi_board set m_hits = m_hits+1 where m_no = #{m_no}
+	</update>
+
+	<select id="hitsList" resultType="com.project.mh.board.dto.GuestDto">
+		SELECT * from mabi_board where m_hits > 2 order by m_hits desc limit 10
+	</select>
+
+	<insert id="reg">
+		INSERT into mabi_board_member values(#{id},#{pw})
+	</insert>
+
+	<select id="regCount" resultType="int">
+		SELECT count(*) from mabi_board_member where id = #{id} and pw = #{pw}
+	</select>
+	
+	<select id="log" resultType="com.project.mh.board.dto.AccountDto">
+		SELECT * from mabi_board_member where id = #{id} and pw = #{pw}
+	</select>
+	
+	<select id="logCount" resultType="int">
+		SELECT count(*) from mabi_board_member where id = #{id} and pw = #{pw}
+	</select>
+</mapper>	
