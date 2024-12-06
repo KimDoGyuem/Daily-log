@@ -14,5 +14,6 @@ public class CharacterInfo {
 	private String critical;
 	private String balance;
 	private String unrestricting_Attacks;
+	private String id;
 	
 }

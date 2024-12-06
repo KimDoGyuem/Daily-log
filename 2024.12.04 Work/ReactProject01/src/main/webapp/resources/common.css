@@ -1,36 +1,113 @@
 @charset "UTF-8";
 body{
-	background:#c8dbf7;
-}
-
-h1{
-	color:red;
+	background:#ffffff;
+/*     display: flex; */
+/*     justify-content: center; 가로 방향 가운데 정렬 */
+/*     align-items: center;   세로 방향 가운데 정렬 */
+    height: 100vh;         /* 화면 전체 높이 */
+    margin: 0;             /* 기본 여백 제거 */
 }
 
 tr, td{
-	border:solid 1px #0080ff;	
+	border:solid 1px #000000;	
 }
 
-#box{
-	display: flex;	
+.log_box{
+	width: 200px;
+	height: 27px;
+	margin: 1px;
 }
 
-#cb{
-	width: 370px;
-	border-style: solid;
-	border-width: 3px;
-	border-color: #0085cc;
-	border-radius: 30px;
-	margin: 3px;
-	padding: 1px;
+#main{
+	width: 1300px;
+	height: 100vh;
+	background-color: #e6e6e6;
+	border-radius: 10px;
+	display: flex;
+	position: relative;
 }
 
-#cs{
-	width: 370px;
-	border-style: solid;
-	border-width: 3px;
-	border-color: #6013fd;
-	border-radius: 30px;
-	margin: 3px;
-	padding: 1px;
+#category_box{
+	width: 200px;
+	height: 90vh;
+	background-color: #ffffff;
+	border-radius: 20px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+
+#center_box{
+	width: 790px;
+	height: 90vh;
+	background-color: #ffffff;
+	border-radius: 20px;
+	position: absolute;
+    top: 20px;
+    left: 240px;
+}
+
+#hits_list_box{
+	width: 750px;
+	height: 300px;
+	background-color: #c4e3fd;
+	border-radius: 20px;
+	position: absolute;
+	left: 20px;	
+	top: 20px;
+}
+
+#util_box{
+	position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#login_box{
+	width: 230px;
+	height: 170px;
+	background-color: #ffffff;
+	border-radius: 20px;
+	display: flex;
+	flex-direction: column;
+    justify-content: center; 
+    align-items: center;   
+}
+
+#party_simul_box{
+	width: 230px;
+	height: 50px;
+	background-color: #ffffff;
+	border-radius: 20px;
+    position: absolute;
+    top: 190px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+#logcheck_shop_box{
+	width: 230px;
+	height: 50px;
+	background-color: #ffffff;
+	border-radius: 20px;
+    position: absolute;
+    top: 260px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+#home_box{
+	width: 230px;
+	height: 50px;
+	background-color: #ffffff;
+	border-radius: 20px;
+    position: absolute;
+    top: 330px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
 }

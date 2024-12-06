@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -12,10 +13,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.project.mapper.MHMapper;
 import com.project.mh.dto.CharacterInfo;
 import com.project.mh.dto.MHCharacterBasicDto;
 import com.project.mh.dto.MHCharacterStatDto;
 import com.project.mh.dto.MHOcidDto;
+import com.project.mh.dto.SelectPartyDto;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -24,7 +27,9 @@ import lombok.extern.log4j.Log4j;
 @Service
 @AllArgsConstructor
 public class MHServiceImpl implements MHService {
-
+	
+	
+	private MHMapper mapper;
 	private final String API_KEY = "test_6cef866ab2c35ada7007397305e74d6f035f8cd449a2e8b3b9cdb6909e5d9febefe8d04e6d233bd35cf2fabdeb93fb0d";
 
 	public String ocidSearch(String name) {
@@ -65,7 +70,7 @@ public class MHServiceImpl implements MHService {
 		return ocid;
 	}
 
-	public CharacterInfo getCharacterInfo(String ocid) {
+	public CharacterInfo getCharacterInfo(String ocid,String id) {
 
 		String BASIC_API_URL = "https://open.api.nexon.com/heroes/v2/character/basic?ocid=" + ocid;
 		String STAT_API_URL = "https://open.api.nexon.com/heroes/v2/character/stat?ocid="+ocid;
@@ -111,8 +116,35 @@ public class MHServiceImpl implements MHService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		System.out.println("아이디=="+id);
+		if(id!=null) {
+			cInfo.setId(id);
+			mapper.addCharacterList(cInfo);
+		}
 		return cInfo;
+	}
+	
+	public ArrayList<CharacterInfo> characterList(String id){
+		ArrayList<CharacterInfo> c = mapper.characterList(id);
+		return c;
+	}
+	
+	public void listReset(String id) {
+		mapper.listReset(id);
+	}
+	
+	public void idAddParty(SelectPartyDto s) {
+		mapper.idAddParty(s);
+	}
+	
+	public ArrayList<CharacterInfo> getMyParty(String id,int no){
+		SelectPartyDto s = new SelectPartyDto(id,no);
+		ArrayList<CharacterInfo> c = mapper.getMyParty(s);
+		return c;
+	}
+	
+	public void idRemoveParty(SelectPartyDto s) {
+		mapper.idRemoveParty(s);
 	}
 	
 }

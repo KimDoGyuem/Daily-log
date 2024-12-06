@@ -10,11 +10,8 @@
 <link rel="stylesheet" href="${cp}/resources/common.css?ver=<%= System.currentTimeMillis() %>">
 </head>
 <body>
-	<h1>Hello world!</h1>
-
-	<P>The time on the server is ${serverTime}.</P>
-	리엑트 api 테스트<br>
-	<a href="${cp }/card/gacha">가챠 확인</a>
-	<a href="${cp }/card/getMyCards">보유 목록 확인</a>
+<!-- 	<h1>Hello world!</h1> -->
+<%-- 	<P>The time on the server is ${serverTime}.</P> --%>
+	<a href="${cp }/mabi/board">마영전 게시판</a>
 </body>
 </html>
