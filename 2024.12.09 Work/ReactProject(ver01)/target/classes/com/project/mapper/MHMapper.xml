@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.mapper.MHMapper">
+	
+	<insert id="addCharacterList">
+		INSERT into mabi_character_list (character_name,class_name,level,offensive_power,magic_power,additional_damage,critical,balance,unrestricting_Attacks,id)
+		 values(#{character_name},#{class_name},#{level},#{offensive_power},#{magic_power},#{additional_damage},#{critical},#{balance},#{unrestricting_Attacks},#{id})
+	</insert>
+
+	<select id="characterList" resultType="com.project.mh.dto.CharacterInfo">
+		SELECT * from mabi_character_list where id=#{id}
+	</select>
+	
+	<delete id="listReset">
+		DELETE from mabi_character_list where id=#{id}
+	</delete>
+	
+	<update id="idAddParty">
+		UPDATE mabi_character_list set deployment = 1 where id = #{id} and character_name = #{character_name}
+	</update>
+	
+	<select id="getMyParty" resultType="com.project.mh.dto.CharacterInfo">
+		SELECT * from mabi_character_list where id=#{id} and deployment = #{no}
+	</select>
+	
+	<update id="idRemoveParty">
+		UPDATE mabi_character_list set deployment = 0 where id = #{id} and character_name = #{character_name}
+	</update>
+</mapper>	
